@@ -1,0 +1,39 @@
+GridBackground {
+    --grid-background-color: rgb(20, 21, 23);
+    --line-color: rgba(158, 161, 158, 0.09);
+    --thick-line-color: rgba(153, 156, 152, 0.1);
+    --spacing: 15;
+}
+
+GameFlowEditorInspectorView {
+    padding: 15;
+}
+
+GameFlowEditorNodeView .node-description {
+    padding: 4px;
+    margin-top: 0.01px;
+    background-color: rgba(63, 63, 63, 0.8);
+    border-top-width: 1px;
+    border-top-color: rgba(35, 35, 35, 0.8);
+}
+
+GameFlowEditorNodeView #runtime-border {
+    border-radius: 8px;
+    margin: 2px;
+    border-width: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+GameFlowEditorNodeView.flowstate-active #runtime-border {
+    border-color: rgba(255, 184, 0, 0.55);
+    border-width: 2px;
+}
+
+GameFlowEditorNodeView.flowstate-finished #runtime-border {
+    border-color: rgba(0, 128, 255, 0.55);
+    border-width: 2px;
+}

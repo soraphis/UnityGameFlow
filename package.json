@@ -1,0 +1,15 @@
+{
+  "name": "com.soraphis.gameflow",
+  "displayName": "Game Flow",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "A Unity plugin to manage game flow and state transitions.",
+  "license": "MIT",
+  "documentationUrl": "https://github.com/soraphis/gameflow#readme",
+  "author": { "name": "Soraphis" },
+  "keywords": [ "gameflow", "state management", "unity", "plugin" ],
+  "dependencies": {
+  },
+  "samples": [
+  ]
+}
