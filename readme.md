@@ -2,10 +2,14 @@
  <img width="824" alt="(title image)" src="Documentation~/titleimg.png">
  
  Game Flow
+
 </h1>
+
+<small align="center">
 
 a graph based high level game flow Implementation inspired by [FlowGraph](github.com/MothCocoon/FlowGraph) for Unreal
 
+</small>
 
 <p align="center">
   <a href="#about">About</a> •
