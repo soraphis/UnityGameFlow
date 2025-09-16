@@ -76,7 +76,7 @@ public class GameFlowEditorWindow : EditorWindow
         labelFromUXML.style.flexGrow = 1;
         root.Add(labelFromUXML);
         
-        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/GameFlow/Editor/UI/GameFlowEditorWindow.uss"); // fixme: change to package path later :)
+        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/com.soraphis.gameflow/Editor/UI/GameFlowEditorWindow.uss"); // fixme: change to package path later :)
         root.styleSheets.Add(stylesheet);
         
         graphView = root.Q<GameFlowEditorGraphView>();

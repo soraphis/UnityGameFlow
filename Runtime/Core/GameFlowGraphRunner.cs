@@ -68,7 +68,11 @@ namespace GameFlow.Core
             if (string.IsNullOrEmpty(connection.inputGuid)) return;
             
             var targetGuid = connection.inputGuid;
-            var inputNode = _nodes.First(n => n.guid == targetGuid);
+            var inputNode = _nodes.FirstOrDefault(n => n.guid == targetGuid);
+            if (inputNode.node == null)
+            {
+                return;
+            }
             TriggerInput(inputNode, connection.inputPin);
             if(finished) finishedNodes.Add(nodeGuid);
         }

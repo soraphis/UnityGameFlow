@@ -88,7 +88,8 @@ public class GameFlowEditorInspectorView : VisualElement
         wrapper = new NodeWrapper();
         wrapper.OnNodeChanged += TriggerOnNodeChanged;
         
-        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/GameFlow/Editor/UI/GameFlowEditorWindow.uss"); // fixme: change to package path later :)
+        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/com.soraphis.gameflow/Editor/UI/GameFlowEditorWindow.uss"); // fixme: change to package path later :)
+        
         styleSheets.Add(stylesheet);
     }
     
