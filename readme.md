@@ -7,7 +7,7 @@
 
 <small align="center">
 
-a graph based high level game flow Implementation inspired by [FlowGraph](github.com/MothCocoon/FlowGraph) for Unreal
+a graph based high level game flow Implementation inspired by [FlowGraph](https://www.github.com/MothCocoon/FlowGraph) for Unreal
 
 </small>
 
@@ -49,3 +49,4 @@ An easy way to implement custom nodes for your own game.
 
 - Create a Custom Node
 - ...
+
