@@ -11,6 +11,7 @@ public enum NodeStyle
     None = 0, Default = 1, Control = 2, Event = 3, InOut = 4, 
     Latent = 5, SubGraph = 6, 
     
+    ERROR = 15,
     Custom = 16
 }
 
@@ -80,7 +81,7 @@ public abstract class GameFlowNodeBase : IGameFlowLifecycle // TODO: serializati
         ExecuteInput(pinName);
     }
     
-    internal void TriggerFirstOutput(bool finished) => TriggerOutput(0, finished);
+    protected internal void TriggerFirstOutput(bool finished) => TriggerOutput(0, finished);
     protected void TriggerOutput(int i, bool finished) => TriggerOutput(outputPins[i], finished);
     
     protected void TriggerOutput(string pinName, bool finished)
@@ -92,7 +93,7 @@ public abstract class GameFlowNodeBase : IGameFlowLifecycle // TODO: serializati
     }
 
 #if UNITY_EDITOR
-    internal virtual string GetNodeDescription()
+    protected internal virtual string GetNodeDescription()
     {
         return "";
     }

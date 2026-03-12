@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[NodeTitle("DebugLog")]
+[NodeTitle("DebugLog", "Debug/DebugLog")]
 public class FlowNode_DebugLog : GameFlowNodeBase
 {
     // -- CONFIG ----------------
@@ -20,7 +20,7 @@ public class FlowNode_DebugLog : GameFlowNodeBase
     }
 
 #if UNITY_EDITOR
-    internal override string GetNodeDescription()
+    protected internal override string GetNodeDescription()
     {
         return "Log: " + logMessage;
     }

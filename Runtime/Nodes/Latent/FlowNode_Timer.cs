@@ -2,7 +2,7 @@
 using Unity.Collections;
 using UnityEngine;
 
-[NodeTitle("Timer")]
+[NodeTitle("Latent/Timer")]
 public class FlowNode_Timer : GameFlowNodeBase
 {
     [SerializeField, ReadOnly] private float runtime;

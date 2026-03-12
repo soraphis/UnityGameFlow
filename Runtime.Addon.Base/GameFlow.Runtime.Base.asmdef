@@ -1,0 +1,29 @@
+{
+    "name": "GameFlow.Runtime.Base",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e6d14ec3498c39f4999675567080e8e6",
+        "GUID:c0361b76975d0724388d27c4ac75bea8",
+        "GUID:8423640fe96aff04cb471bd3a39fa8ef"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.soraphis.expressions",
+            "expression": "0.2.0",
+            "define": "EXPRESSIONS"
+        },
+        {
+            "name": "com.soraphis.eventbus",
+            "expression": "0.3.0",
+            "define": "EVENTBUS"
+        }
+    ],
+    "noEngineReferences": false
+}

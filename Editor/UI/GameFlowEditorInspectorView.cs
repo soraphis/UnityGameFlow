@@ -1,6 +1,7 @@
 ﻿using System;
 using Unity.Collections;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -19,6 +20,68 @@ internal class NodeWrapper : ScriptableObject
 [CustomEditor(typeof(NodeWrapper))]
 public class NodeWrapperEditor : Editor
 {
+    public override VisualElement CreateInspectorGUI()
+    {
+        var root = new VisualElement();
+        
+        var mainProperty = serializedObject.FindProperty("NodeBase");
+        
+        var outputsProperty = mainProperty.FindPropertyRelative("outputPins");
+        var canAddOutput = ((NodeWrapper)target).NodeBase.CanUserAddOutput();
+        if (canAddOutput)
+        {
+            var addOutputBtn = new Button(() =>
+            {
+                outputsProperty.InsertArrayElementAtIndex(outputsProperty.arraySize);
+                outputsProperty.GetArrayElementAtIndex(outputsProperty.arraySize - 1).stringValue = (outputsProperty.arraySize - 1).ToString();
+                if (serializedObject.ApplyModifiedProperties())
+                {
+                    ((NodeWrapper)target)?.TriggerOnNodeChanged();
+                }            })
+            { text = "Add Output Pin" };
+            root.Add(addOutputBtn);
+        }
+        
+        var inputsProperty = mainProperty.FindPropertyRelative("inputPins");
+        var canAddInput = ((NodeWrapper)target).NodeBase.CanUserAddInput();
+        if (canAddInput)
+        {
+            var addInputBtn = new Button(() =>
+            {
+                inputsProperty.InsertArrayElementAtIndex(inputsProperty.arraySize);
+                inputsProperty.GetArrayElementAtIndex(inputsProperty.arraySize - 1).stringValue = (inputsProperty.arraySize - 1).ToString();
+                if (serializedObject.ApplyModifiedProperties())
+                {
+                    ((NodeWrapper)target)?.TriggerOnNodeChanged();
+                }            })
+            { text = "Add Input Pin" };
+            root.Add(addInputBtn);
+        }
+
+        mainProperty.NextVisible(true);
+        do
+        {
+            var inner = mainProperty.Copy();
+            var attribs = EditorUtils.GetAttributes<ReadOnlyAttribute>(inner, true);
+            
+            var p = new PropertyField(inner);
+            p.SetEnabled(attribs.Length == 0);
+            p.RegisterValueChangeCallback(evt =>
+            {
+                ((NodeWrapper)target)?.TriggerOnNodeChanged();
+            });
+            root.Add(p);
+            
+            // EditorGUI.BeginDisabledGroup(attribs.Length > 0); 
+            // EditorGUILayout.PropertyField(mainProperty, true);
+            // EditorGUI.EndDisabledGroup();
+        } while (mainProperty.NextVisible(false));
+        
+
+        
+        return root;
+    }
+
     public override void OnInspectorGUI()
     {
         try{
@@ -103,11 +166,8 @@ public class GameFlowEditorInspectorView : VisualElement
 
         if(editor != null) UnityEngine.Object.DestroyImmediate(editor);
         editor = Editor.CreateEditor(wrapper);
-        IMGUIContainer container = new IMGUIContainer(() =>
-        {
-            if(editor && editor.target) editor.OnInspectorGUI();
-        });
-        Add(container);
+        var inspectorElement = new InspectorElement(wrapper);
+        Add(inspectorElement);
         
     }
 }

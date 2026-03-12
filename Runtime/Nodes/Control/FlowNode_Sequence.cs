@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-[NodeTitle("Sequence")]
+[NodeTitle("Sequence", "Control/Sequence")]
 public class FlowNode_Sequence : GameFlowNodeBase
 {
     public override bool CanUserAddOutput() { return true; }

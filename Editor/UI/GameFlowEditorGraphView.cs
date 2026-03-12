@@ -151,13 +151,13 @@ public class GameFlowEditorGraphView : GraphView
 
         }
 
-        var pos = evt.mousePosition;
+        var pos = evt.mousePosition; // FIXME: this does not seem to work ...
         foreach (var type in types)
         {
             if(type.IsAbstract) continue;
             if(type == typeof(FlowNode_Start)) continue; // auto generated.
             
-            var actionName = type.GetCustomAttribute<NodeTitleAttribute>()?.Title ?? type.Name; 
+            var actionName = type.GetCustomAttribute<NodeTitleAttribute>()?.CreateMenuName ?? type.Name; 
             
             evt.menu.AppendAction(actionName, (a) =>
             {

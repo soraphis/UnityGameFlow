@@ -28,6 +28,7 @@ public class GameFlowEditorNodeView : Node
             case NodeStyle.InOut: return new Color(1.0f, 0.0f, 0.008f);
             case NodeStyle.Latent: return new Color(0.0f, 0.770f, 0.375f);
             case NodeStyle.SubGraph: return new Color(1.0f, 0.128f, 0.0f);
+            case NodeStyle.ERROR: return new Color(1.0f, 0.0f, 1.0f);
             case NodeStyle.Custom: break;
         }
         return fallback;

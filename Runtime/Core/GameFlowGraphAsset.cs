@@ -43,7 +43,6 @@ public struct GraphViewNode
     public NodeStyle NodeStyle => node.NodeStyle;
     public string description => node.GetNodeDescription();
 
-
     public void TriggerFirstOutput() => node.TriggerFirstOutput(true);
     public void TriggerInput(IFlowRunner runner, string pinName) => node.TriggerInput(runner, pinName);
 

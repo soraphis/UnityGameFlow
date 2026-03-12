@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-[NodeTitle("Counter")]
+[NodeTitle("Counter", "Control/Counter")]
 public class FlowNode_Counter : GameFlowNodeBase
 {
     // -- STATE (save-game-data) -------------------

@@ -6,7 +6,7 @@
             <uie:ToolbarSpacer style="width: 197px;" />
             <ui:DropdownField index="-1" choices="{Active GameObject}" name="ActiveObjectSwitcher" />
         </uie:Toolbar>
-        <GameFlowEditorSplitView fixed-pane-initial-dimension="300">
+        <GameFlowEditorSplitView fixed-pane-initial-dimension="500">
             <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
                 <GameFlowEditorInspectorView style="min-width: 50px; flex-grow: 1;" />
             </ui:VisualElement>

@@ -3,8 +3,8 @@ using System.Linq;
 using GameFlow.Helper;
 using UnityEngine;
 
-[NodeTitle("AND")]
-public class FlowNode_AND : GameFlowNodeBase
+[NodeTitle("WhenAll", "Control/WhenAll")]
+public class FlowNode_WhenAll : GameFlowNodeBase
 {
     [SerializeField] private List<string> executedInputPins; // save-game-data
 

@@ -2,7 +2,7 @@
 using GameFlow.Helper;
 using UnityEngine;
 
-[NodeTitle("MultiGate")]
+[NodeTitle("MultiGate", "Control/MultiGate")]
 public class FlowNode_MultiGate : GameFlowNodeBase
 {
     // -- STATE (save-game-data) -------------------
