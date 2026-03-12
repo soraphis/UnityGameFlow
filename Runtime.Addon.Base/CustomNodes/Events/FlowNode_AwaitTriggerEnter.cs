@@ -7,7 +7,7 @@ using UnityInspectorExpressions.Expressions;
 
 namespace Runtime.Addon.Base.CustomNodes.Events
 {
-    [NodeTitle("AwaitTriggerExit", "Events/AwaitTriggerEnter")]
+    [NodeTitle("AwaitTriggerEnter", "Events/AwaitTriggerEnter")]
     public class FlowNode_AwaitTriggerEnter : GameFlowNodeBase
     {
         // -- CONFIG ----------------

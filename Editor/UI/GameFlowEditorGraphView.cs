@@ -31,15 +31,16 @@ public class GameFlowEditorGraphView : GraphView
         this.AddManipulator(new RectangleSelector());
         
         Undo.undoRedoPerformed += OnUndoRedo;
+        RegisterCallback<DetachFromPanelEvent>(_ => Undo.undoRedoPerformed -= OnUndoRedo);
         
-        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/com.soraphis.gameflow/Editor/UI/GameFlowEditorWindow.uss"); // fixme: change to package path later :)
+        var stylesheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Packages/com.soraphis.gameflow/Editor/UI/GameFlowEditorWindow.uss");
         styleSheets.Add(stylesheet);
     }
 
     private void OnUndoRedo()
     {
         PopulateView(graphViewGraph);
-        AssetDatabase.SaveAssets();
+        AssetDatabase.SaveAssets(); // should be redundant
     }
 
     public void UpdateActiveFlows(GameFlowGraphRunner activeFlow)
@@ -51,6 +52,8 @@ public class GameFlowEditorGraphView : GraphView
     
     public void PopulateView(GameFlowGraphAsset graphAsset)
     {
+        if (graphAsset == null) return;
+        
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;

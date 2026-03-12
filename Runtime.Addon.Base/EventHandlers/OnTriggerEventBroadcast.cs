@@ -8,24 +8,37 @@ namespace Runtime.Addon.Base.EventHandlers
     {
         public bool RaiseEventOnEnter = true;
         public bool RaiseEventOnExit = false;
+
+        private Collider selfCollider;
         
+        private void Start()
+        {
+            selfCollider = this.GetComponent<Collider>();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
 #if EVENTBUS
             if(RaiseEventOnEnter)
                 EventBus.EventBus<OnTriggerEnterEvent>.Raise(new OnTriggerEnterEvent
                 {
-                    triggeringObject = gameObject,
-                    triggerCollider  = other,
+                    triggeringObject = other.gameObject,
+                    triggerCollider  = selfCollider,
                 });
-            
+#endif
+        }        
+        
+        private void OnTriggerExit(Collider other)
+        {
+#if EVENTBUS
             if(RaiseEventOnExit)
                 EventBus.EventBus<OnTriggerExitEvent>.Raise(new OnTriggerExitEvent
                 {
-                    triggeringObject = gameObject,
-                    triggerCollider  = other,
+                    triggeringObject = other.gameObject,
+                    triggerCollider  = selfCollider,
                 });
 #endif
         }
+        
     }
 }

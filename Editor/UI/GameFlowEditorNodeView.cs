@@ -99,6 +99,7 @@ public class GameFlowEditorNodeView : Node
             p.portName = portName;
             container.Add(p);
             ports.Add(portName, p);
+            
         }
         
         foreach (var key in previousKeys)
@@ -121,11 +122,11 @@ public class GameFlowEditorNodeView : Node
 
     public override void SetPosition(Rect newPos)
     {
-        base.SetPosition(newPos);
         Undo.RecordObject(graphViewGraph, "FlowGraph: Move Node");
+        base.SetPosition(newPos);
         node.position = new Vector2(newPos.xMin, newPos.yMin);
         EditorUtility.SetDirty(graphViewGraph);
-
+        AssetDatabase.SaveAssets();
     }
 
 
